@@ -23,4 +23,4 @@ An intelligent AI chatbot agent built using **n8n** low-code automation platform
 6. Activate & enjoy!
 
 ## 👤 Made by
-[Tera Naam Yahan]
+[Anurag Jaiswar]
