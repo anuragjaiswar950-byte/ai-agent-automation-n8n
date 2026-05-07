@@ -22,5 +22,8 @@ An intelligent AI chatbot agent built using **n8n** low-code automation platform
 5. Add your own API credentials
 6. Activate & enjoy!
 
+## 📸 Workflow Preview
+![Yart AI Workflow](./screenshot.png)
+
 ## 👤 Made by
 [Anurag Jaiswar]
