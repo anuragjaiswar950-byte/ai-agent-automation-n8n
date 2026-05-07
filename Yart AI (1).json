@@ -1,0 +1,164 @@
+{
+  "name": "Yart AI",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -944,
+        -48
+      ],
+      "id": "5b39086b-1f44-4409-9105-826e384192ad",
+      "name": "When chat message received",
+      "webhookId": "39ddc2bd-46ce-40bf-81b9-149b1cb03928"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        -688,
+        -48
+      ],
+      "id": "8ac4dbdd-f480-4286-a734-7c12b6b7a74c",
+      "name": "AI Agent",
+      "notes": "You are an intelligent AI automation assistant.\n\nUse available tools whenever required:\n- Use calculator for math problems\n- Use search tools for real-time information\n\nMaintain conversational memory and provide accurate, concise, and helpful responses."
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        -688,
+        160
+      ],
+      "id": "2956f106-44b1-4694-a40b-0698eb931a8d",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "typeVersion": 1,
+      "position": [
+        -368,
+        160
+      ],
+      "id": "a2d4d891-a01c-482f-ac09-d49b527fd3fc",
+      "name": "Calculator"
+    },
+    {
+      "parameters": {
+        "additionalFields": {},
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-serpapi.serpApiTool",
+      "typeVersion": 1,
+      "position": [
+        -528,
+        160
+      ],
+      "id": "29e0b19b-b650-43e4-a715-21b4669c13a7",
+      "name": "Google search in SerpApi",
+      "credentials": {
+        "serpApi": {
+          "id": "Waweul0zU58362Eu",
+          "name": "SerpApi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1.1,
+      "position": [
+        -848,
+        160
+      ],
+      "id": "c67d66fc-032c-433f-9f95-eec1c0392543",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "b5gxsNGNtHVZyIlG",
+          "name": "Google Gemini(PaLM) Api account 2"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calculator": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google search in SerpApi": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "a0e9fc63-6f9c-411e-8ba0-3fe973c493f8",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "4f19e2e9e8f4d3e8e15cbc3aa78a6a7aaa37d208dbfb5cf6fcbc66cf82936ccd"
+  },
+  "id": "bvzBToabHThlv2LK",
+  "tags": []
+}
